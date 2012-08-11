@@ -173,17 +173,20 @@ def reset():
     db.session.commit()
     return 'Database Reset'
 
+
 # Index page
 @app.route('/')
 def index():
-    params = {
+  '''  
+  params = {
         'voice_request_url': url_for('.voice', _external=True),
         'client_url': url_for('.client', _external=True),
         'auth_url': url_for('.auth', _external=True),
         'trans_url': url_for('.trans', _external=True),
         'data_url' : url_for('.data', _external=True)}
-    return render_template('index.html', params=params)
-
+        
+    return render_template('index.html', params=params) '''
+  return render_template('landing_page.html')
 
 # If PORT not specified by environment, assume development config.
 if __name__ == '__main__':
