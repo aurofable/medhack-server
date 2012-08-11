@@ -161,7 +161,6 @@ def reg():
 # Get Data Route
 @app.route('/profile/<int:profID>', methods=['GET', 'POST'])
 def prof(profID):
-  
   return 'You Looked at profile ' + str(profID);
    
 # Database
@@ -186,6 +185,30 @@ def reset():
     db.create_all()
     db.session.commit()
     return 'Database Reset'
+
+
+# Dummy Data
+@app.route('/dummy', methods=['GET', 'POST'])
+def dummy():
+    first_name = 'John'
+    last_name = 'Smith'
+    aux = 'Lorem Ipsum'
+    pic1 = 'http://www.google.com'
+    pic2 = 'http://www.google.com'
+    pic3 = 'http://www.google.com'
+    prof = Profile(first_name, last_name, aux, pic1, pic2, pic3)
+    db.session.add(prof)
+
+    first_name = 'Jane'
+    last_name = 'Smith'
+    aux = 'Lorem Ipsum'
+    pic1 = 'http://www.google.com'
+    pic2 = 'http://www.google.com'
+    pic3 = 'http://www.google.com'
+    prof = Profile(first_name, last_name, aux, pic1, pic2, pic3)
+    db.session.add(prof)
+    db.session.commit()
+    return 'Dummy Data Added!'
 
 
 # Index page
