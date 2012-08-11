@@ -22,7 +22,7 @@ db = SQLAlchemy(app)
 
 
 # Class for DB
-class aidpin_account(db.Model):
+class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(20))
     last_name = db.Column(db.String(20))
@@ -157,13 +157,19 @@ def trans():
 @app.route('/for-patients', methods=['GET', 'POST'])
 def reg():
   return 'WORK IN PROGRESS'
+
+# Get Data Route
+@app.route('/profile/<int:profID>', methods=['GET', 'POST'])
+def prof(profID):
+  
+  return 'You Looked at profile ' + str(profID);
    
 # Database
 @app.route('/data', methods=['GET', 'POST'])
 def data():
-    if (len(Note.query.all()) == 0):
+    if (len(Profile.query.all()) == 0):
         return 'Database empty'
-    return jsonify(values=[i.serialize for i in Note.query.all()])
+    return jsonify(values=[i.serialize for i in Profile.query.all()])
 
 # Clear Database
 @app.route('/clear', methods=['GET', 'POST'])
