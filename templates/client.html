@@ -1,67 +1,173 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://twitter.github.com/bootstrap/index.html -->
+<html lang="en"><script type="text/javascript" async="" id="gauges-tracker" data-site-id="4f0dc9fef5a1f55508000013" src="./Twitter Bootstrap_files/track.js"></script><script type="text/javascript" async="" src="./Twitter Bootstrap_files/ga.js"></script><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>AidPin - Lifesaving tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-{% block title %}Client{% endblock %}
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
-{% block head %}
-<link href="http://static0.twilio.com/packages/quickstart/client.css"
-  type="text/css" rel="stylesheet" />
-{% if not configuration_error %}
-<script type="text/javascript"
-  src="http://static.twilio.com/libs/twiliojs/1.0/twilio.min.js"></script>
-<script type="text/javascript"
-  src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
-</script>
-<script type="text/javascript">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-  Twilio.Device.setup("{{ token }}");
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
 
-  Twilio.Device.ready(function (device) {
-    $("#log").text("Ready");
-  });
+  </head>
 
-  Twilio.Device.error(function (error) {
-    $("#log").text("Error: " + error.message);
-  });
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" data-twttr-rendered="true">
 
-  Twilio.Device.connect(function (conn) {
-    $("#log").text("Successfully established call");
-  });
 
-  Twilio.Device.disconnect(function (conn) {
-    $("#log").text("Call ended");
-  });
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./Twitter Bootstrap_files/Twitter Bootstrap.html"><img src="images/aidpin_white.png" style="height:30px;padding-top:0;margin-top:-10px;margin-bottom:-10px"></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="./landing_page.html">Overview</a>
+              </li>
+              <li class="">
+                <a href="http://twitter.github.com/bootstrap/scaffolding.html">Scaffolding</a>
+              </li>
+              <li class="">
+                <a href="http://twitter.github.com/bootstrap/base-css.html">Base CSS</a>
+              </li>
+              <li class="">
+                <a href="http://twitter.github.com/bootstrap/components.html">Components</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  Twilio.Device.incoming(function (conn) {
-    $("#log").text("Incoming connection from " + conn.parameters.From);
-    // accept the incoming connection and start two-way audio
-    conn.accept();
-  });
+    <div class="container">
 
-  function call() {
-    // get the phone number to connect the call to
-    Twilio.Device.connect();
-  }
+<!-- Masthead
+================================================== -->
+<header class="jumbotron masthead">
+  <div class="inner">
+    <h1>In case of emergency,</h1>
+    <p>Nobody has to panic.</p>
+  </div>
+  
+    <div class="inner">
+    <h1>Bootstrap, from Twitter</h1>
+    <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
+    <p class="download-info">
+      <a href="https://github.com/twitter/bootstrap/" class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'GitHub Project', 'View project on GitHub']);">View project on GitHub</a>
+      <a href="assets/bootstrap.zip" class="btn btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 2.0.4']);">Download Bootstrap <small>(v2.0.4)</small></a>
+    </p>
+  </div>
+<!--
+  <div class="bs-links">
+    <ul class="quick-links">
+      <li><a href="http://twitter.github.com/bootstrap/upgrading.html">Upgrading from 1.4</a></li>
+      <li><a href="https://github.com/twitter/bootstrap/zipball/master">Download with docs</a></li>
+      <li><a href="http://blog.getbootstrap.com/">Read the blog</a></li>
+      <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Submit issues</a></li>
+      <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
+    </ul>
+-->
+   
+    <ul class="quick-links">
+      <li>
+        <iframe class="github-btn" src="./Twitter Bootstrap_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+      </li>
+      <li>
+        <iframe class="github-btn" src="./Twitter Bootstrap_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+      </li>
+      <li class="follow-btn">
+        <iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Twitter Bootstrap_files/follow_button.1340179658.html" class="twitter-follow-button" style="width: 236px; height: 20px; " title="Twitter Follow Button"></iframe>
+      </li>
+      <li class="tweet-btn">
+        <iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Twitter Bootstrap_files/tweet_button.1340179658.html" class="twitter-share-button twitter-count-horizontal" style="width: 107px; height: 20px; " title="Twitter Tweet Button"></iframe>
+      </li>
+    </ul>
+  </div>
+</header>
 
-  function hangup() {
-    Twilio.Device.disconnectAll();
-  }
-</script>
-{% endif %}
-{% endblock %}
+<hr class="soften">
 
-{% block content %}
-<button class="call" onclick="call();">
-  Call
-</button>
+<div class="marketing">
+  <h1>Made for anyone, anywhere.</h1>
+  <p class="marketing-byline">Need reasons to love Aidpin? Look no further.</p>
+  <div class="row">
+    <div class="span4">
+      <img class="bs-icon" src="./Twitter Bootstrap_files/glyphicons_042_group.png">
+      <h2>Emergency Contacts Notified</h2>
+      <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. AidPin is built for you.</p>
+    </div>
+    <div class="span4">
+      <img class="bs-icon" src="./Twitter Bootstrap_files/glyphicons_266_book_open.png">
+      <h2>Secure Information</h2>
+      <p>Unlike other front-end toolkits, AidPin was designed first and foremost as a styleguide to document not only our features, but best practices and living, coded examples.</p>
+    </div>
+    <div class="span4">
+      <img class="bs-icon" src="./Twitter Bootstrap_files/glyphicons_163_iphone.png">
+      <h2>Easy-to-Use</h2>
+      <p>Originally built with only modern browsers in mind, AidPin has evolved to include support for all major browsers (even IE7!) and, with Bootstrap 2, tablets and smartphones, too.</p>
+    </div>
+  </div><!--/row-->
 
-<button class="hangup" onclick="hangup();">
-  Hangup
-</button>
-<div id="log">
-{% if configuration_error %}
-{{ configuration_error }}
-{% else %} 
-Loading pigeons...
-{% endif %}
-</div>
-{% endblock %}
+
+  <hr class="soften">
+
+
+</div><!-- /.marketing -->
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="http://twitter.github.com/bootstrap/index.html#">Back to top</a></p>
+        <p>We are AidPin lalalalallala.</p>
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="./Twitter Bootstrap_files/widgets.js"></script>
+    <script src="./Twitter Bootstrap_files/jquery.js"></script>
+    <script src="./Twitter Bootstrap_files/prettify.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-transition.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-alert.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-modal.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-dropdown.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-scrollspy.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-tab.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-tooltip.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-popover.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-button.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-collapse.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-carousel.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-typeahead.js"></script>
+    <script src="./Twitter Bootstrap_files/application.js"></script>
+
+
+  
+
+</body><link rel="stylesheet" type="text/css" href="data:text/css,"></html>
