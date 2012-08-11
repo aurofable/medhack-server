@@ -212,7 +212,10 @@ def dummy():
     db.session.add(prof)
     db.session.commit()
 
-    client = TwilioRestClient(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    accnt_sid = app.config['TWILIO_ACCOUNT_SID']
+    auth_token = app.config['TWILIO_AUTH_TOKEN']
+
+    client = TwilioRestClient(accnt_sid, auth_token)
     messsage = client.sms.messages.create(to="+14124252207", from_="+16099526377", body="HELP!")
     return 'Dummy Data Added!'
 
