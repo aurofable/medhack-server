@@ -224,7 +224,8 @@ def dummy():
 def client(clientID):
   prof = Profile.query.filter(Profile.id == clientID);
   param = prof[0].serialize
-  print param
+  print str(param)
+  print 'asdfasdfasdf'
   return render_template('client.html')
 
 # Index page
