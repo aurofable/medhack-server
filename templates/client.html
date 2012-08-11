@@ -7,7 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
@@ -18,20 +17,19 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    <!--link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico"-->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
 
+    <style>
+    .btn 
+    </style>
   </head>
 
   <body data-spy="scroll" data-target=".subnav" data-offset="50" data-twttr-rendered="true">
 
-
-  <!-- Navbar
-    ================================================== -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -60,18 +58,61 @@
         </div>
       </div>
     </div>
+    <script>
+    $(document).ready(function()
+  {
+    $(".login-link").click(function()
+    {
+      $("#login-box").toggle();
+      $("#username").focus();
+      return false;
+    });
+    $("#select-meal input").attr('min', 0);
+    $("html").click(function()
+    {$("#login-box").hide();});
 
+    $("#login-box").click(function()
+    {
+      event.stopPropagation();
+    });
+      
+    $("#login-submit").click(function()
+    {
+      $('#content').load('1bloggedin.html #content');
+      return false;
+    });
+    $("#content").on("click", "#select a", function(event)
+    {
+      $('#content').load('2achoose.html #content');
+      return false;
+    });
+    $("#content").on("click", "#Submit", function(event)
+    {
+      $('#content').load('2bloading.html #content');
+      setTimeout("updatePage()", 3000);
+    });
+    
+
+    //$('#paging a').live('click', function(event) {
+      //event.preventDefault();
+      //getElementContents('#content','',$(this).attr('href'),false);
+      // arguements are (target element, data (for $ajax), url (for $ajax), highlight)
+    //});
+  }
+);
+    </script>
     <div class="container">
-
+      <div id="screen1">
+      </div>
+      <div id="screen2">
+      </div>
+      <div id="screen3">
+      </div>
 
 
     </div><!-- /container -->
 
 
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="./Twitter Bootstrap_files/widgets.js"></script>
     <script src="./Twitter Bootstrap_files/jquery.js"></script>
     <script src="./Twitter Bootstrap_files/prettify.js"></script>
