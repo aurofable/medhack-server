@@ -1,53 +1,173 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://twitter.github.com/bootstrap/index.html -->
+<html lang="en"><script type="text/javascript" async=""></script><script type="text/javascript" async="" src="./Twitter Bootstrap_files/ga.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>AidPin - Lifesaving tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-{% block title %}InDay Swarm Hack{% endblock %}
+    <!-- Le styles -->
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
-{% block head %}
-<link rel="stylesheet" type="text/css"
-    href="http://static1.twilio.com/packages/base.css"/>
-<link rel="stylesheet" type="text/css"
-    href="http://static0.twilio.com/packages/buttons.css" />
-<link rel="stylesheet" type="text/css"
-    href="/static/styles/index.css" />
-{% endblock %}
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-{% block content %}
-<div id="container">
-    <header>
-        <div id="header">
-            <h1 class="section-heading">Hackday Jul'12</h1>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" data-twttr-rendered="true" style="background:#BADEFF;font-family:'Georgia'">
+
+
+  <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./Twitter Bootstrap_files/Twitter Bootstrap.html"><img src="/static/images/aidpin_white.png" style="height:30px;margin-bottom:-10px"></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="landing_page.html">Overview</a>
+              </li>
+              <li class="">
+                <a href="#for-patients">For Patients</a>
+              </li>
+              <li class="">
+                <a href="#for-doctors">For Doctors</a>
+              </li>
+              <li class="">
+                <a href="#for-patients">Pricing</a>
+              </li>
+              <li class="">
+                <a href="#for-patients">Our Team</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </header>
-    <section>
-        <div id="content">
-            <h2 class="section-heading">Call-In Deployed.</h2>
-            <!--<p class="blurb">App links:</p>-->
-            <a href="https://www.twilio.com/user/account/apps"
-               class="button">Configure Twilio</a>
-            <a href="{{params['data_url'] }}"
-               class="button">Database</a>
-            <dl id="url_list">
-                <dt>Voice Request URL</dt>
-                <dd><a href="{{params['voice_request_url'] }}">
-                    {{params['voice_request_url'] }}</a></dd>
-                <dt>Client URL</dt>
-                <dd><a href="{{params['client_url'] }}">
-                    {{params['client_url'] }}</a></dd>
-                <dt>Auth URL</dt>
-                <dd><a href="{{params['auth_url'] }}">
-                    {{params['auth_url'] }}</a></dd>
-                <dt>Trans URL</dt>
-                <dd><a href="{{params['trans_url'] }}">
-                    {{params['trans_url'] }}</a></dd>
-           </dl>
-        </div>
-    </section>
-    <footer>
-        <p class="footer">
-            Source on <a
-                href="https://github.com/aurofable">Github</a>.
-            Project by James Chun
-        </p>
-    </footer>
-</div>
-{% endblock %}
+      </div>
+    </div>
+
+    <div class="container">
+<div class="content_to_change">
+<!-- Masthead
+================================================== -->
+<header class="jumbotron masthead">
+  <div class="inner">
+    <h1><img src="/static/images/aidpin.png"></h1>
+    <p>In case of emergency, nobody panic.</p>
+  </div>
+<!--
+  <div class="bs-links">
+    <ul class="quick-links">
+      <li><a href="http://twitter.github.com/bootstrap/upgrading.html">Upgrading from 1.4</a></li>
+      <li><a href="https://github.com/twitter/bootstrap/zipball/master">Download with docs</a></li>
+      <li><a href="http://blog.getbootstrap.com/">Read the blog</a></li>
+      <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Submit issues</a></li>
+      <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap and changelog</a></li>
+    </ul>
+    <ul class="quick-links">
+      <li>
+        <iframe class="github-btn" src="./Twitter Bootstrap_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+      </li>
+      <li>
+        <iframe class="github-btn" src="./Twitter Bootstrap_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+      </li>
+      <li class="follow-btn">
+        <iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Twitter Bootstrap_files/follow_button.1340179658.html" class="twitter-follow-button" style="width: 236px; height: 20px; " title="Twitter Follow Button"></iframe>
+      </li>
+      <li class="tweet-btn">
+        <iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Twitter Bootstrap_files/tweet_button.1340179658.html" class="twitter-share-button twitter-count-horizontal" style="width: 107px; height: 20px; " title="Twitter Tweet Button"></iframe>
+      </li>
+    </ul>
+  </div>
+-->
+</header>
+
+<hr class="soften">
+
+<div class="marketing">
+  <h1>Made for anyone, anywhere.</h1>
+  <p class="marketing-byline">We absolutely mean it. Sign-up now. </p>
+          <p class="download-info" style="text-align:center">
+      <a href="for-patients" class="btn btn-primary btn-large" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Jumbotron actions&#39;, &#39;GitHub Project&#39;, &#39;View project on GitHub&#39;]);">I'm a Patient</a>
+      <a href="http://twitter.github.com/bootstrap/assets/bootstrap.zip" class="btn btn-large" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Jumbotron actions&#39;, &#39;Download&#39;, &#39;Download 2.0.4&#39;]);">I'm a Doctor <small>(or responder)</small></a>
+    </p>
+    <hr class="soften">
+
+  <div class="row">
+    <div class="span4">
+      <img class="bs-icon" src="./Twitter Bootstrap_files/glyphicons_042_group.png">
+      <h2>Emergency Notifications</h2>
+      <p>Like you, we have loved ones. We love them so much, we decided to help people just like us do get in touch with them easier, better, and faster in the event of an emergency. AidPin is built for you.</p>
+    </div>
+    <div class="span4">
+      <img class="bs-icon" src="./Twitter Bootstrap_files/glyphicons_266_book_open.png">
+      <h2>Avoid Drug Allergies</h2>
+      <p>Allergic to penicllin? We got you. Don't waste valuable time that can be used towards saving your life waiting for the system to identify you, read through your health records, and check for your drug allergies. </p>
+    </div>
+    <div class="span4">
+      <img class="bs-icon" src="./Twitter Bootstrap_files/glyphicons_163_iphone.png">
+      <h2>Easy to Use</h2>
+      <p>For healthcare professionals and patients alike, Like your favorite device, we've put in hours of work to make sure that this system is truly easy to use for all. We are designed for your favorite browser, tablets and smartphones, too.</p>
+    </div>
+  </div><!--/row-->
+
+
+  <hr class="soften">
+
+
+</div><!-- /.marketing -->
+</div><!--content_to_change-->
+
+     <!-- Footer
+      ================================================== -->
+      <footer class="footer">
+        <p class="pull-right"><a href="http://twitter.github.com/bootstrap/index.html#">Back to top</a></p>
+        <p>We are AidPin. Michelle, Stephen, James, Aaditya. Built at MedHack. </p>
+      </footer>
+
+    </div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="./Twitter Bootstrap_files/widgets.js"></script>
+    <script src="./Twitter Bootstrap_files/jquery.js"></script>
+    <script src="./Twitter Bootstrap_files/prettify.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-transition.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-alert.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-modal.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-dropdown.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-scrollspy.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-tab.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-tooltip.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-popover.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-button.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-collapse.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-carousel.js"></script>
+    <script src="./Twitter Bootstrap_files/bootstrap-typeahead.js"></script>
+    <script src="./Twitter Bootstrap_files/application.js"></script>
+
+
+  
+
+</body><link rel="stylesheet" type="text/css" href="data:text/css,"></html>

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}InDay Swarm Hack{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css"
+    href="http://static1.twilio.com/packages/base.css"/>
+<link rel="stylesheet" type="text/css"
+    href="http://static0.twilio.com/packages/buttons.css" />
+<link rel="stylesheet" type="text/css"
+    href="/static/styles/index.css" />
+{% endblock %}
+
+{% block content %}
+<div id="container">
+    <header>
+        <div id="header">
+            <h1 class="section-heading">Hackday Jul'12</h1>
+        </div>
+    </header>
+    <section>
+        <div id="content">
+            <h2 class="section-heading">Call-In Deployed.</h2>
+            <!--<p class="blurb">App links:</p>-->
+            <a href="https://www.twilio.com/user/account/apps"
+               class="button">Configure Twilio</a>
+            <a href="{{params['data_url'] }}"
+               class="button">Database</a>
+            <dl id="url_list">
+                <dt>Voice Request URL</dt>
+                <dd><a href="{{params['voice_request_url'] }}">
+                    {{params['voice_request_url'] }}</a></dd>
+                <dt>Client URL</dt>
+                <dd><a href="{{params['client_url'] }}">
+                    {{params['client_url'] }}</a></dd>
+                <dt>Auth URL</dt>
+                <dd><a href="{{params['auth_url'] }}">
+                    {{params['auth_url'] }}</a></dd>
+                <dt>Trans URL</dt>
+                <dd><a href="{{params['trans_url'] }}">
+                    {{params['trans_url'] }}</a></dd>
+           </dl>
+        </div>
+    </section>
+    <footer>
+        <p class="footer">
+            Source on <a
+                href="https://github.com/aurofable">Github</a>.
+            Project by James Chun
+        </p>
+    </footer>
+</div>
+{% endblock %}
