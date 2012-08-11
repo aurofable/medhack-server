@@ -22,34 +22,37 @@ db = SQLAlchemy(app)
 
 
 # Class for DB
-class Note(db.Model):
+class aidpin_account(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    sid = db.Column(db.String(80), unique=True)
-    status = db.Column(db.String(40))
-    duration = db.Column(db.Integer)
-    recurl = db.Column(db.String(140))
-    dateTime = db.Column(db.String(80))
-    
-    def __init__(self, sid, status, duration, recurl, dateTime):
-        self.sid = sid
-        self.status = status
-        self.duration = duration
-        self.recurl = recurl
-        self.dateTime = dateTime
+    first_name = db.Column(db.String(20))
+    last_name = db.Column(db.String(20))
+    aux = db.Column(db.Text)
+    pic1 = db.Column(db.Text)
+    pic2 = db.Column(db.Text)
+    pic3 = db.Column(db.Text)
+
+    def __init__(self, first_name, last_name, aux, pic1, pic2, pic3):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.aux = aux
+        self.pic1 = pic1
+        self.pic2 = pic2
+        self.pic3 = pic3
     
     def __repr__(self):
-        return "('sid', '%s'), ('status', '%s'), ('duration', '%s'), ('recurl','%s'), ('datetime', '%s')" % (self.sid, self.status, self.duration, self.recurl, self.dateTime)
+        return "('id', '%s'), ('first_name', '%s'), ('last_name', '%s'), ('aux','%s'), ('pic1', '%s'), ('pic2', '%s'), ('pic3', '%s')" % (self.id, self.first_name, self.last_name, self.aux, self.pic1, self.pic2, self.pic3)
 
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""
         return {
             'id'        : self.id,
-            'sid'       : self.sid,
-            'status'    : self.status,
-            'duration'  : self.duration,
-            'recurl'    : self.recurl,
-            'dateTime'  : self.dateTime
+            'first_name': self.first_name,
+            'last_name' : self.last_name,
+            'aux'       : self.aux,
+            'pic1'      : self.pic1,
+            'pic2'      : self.pic2,
+            'pic3'      : self.pic3
         }
 
 
@@ -149,6 +152,11 @@ def trans():
     response = twiml.Response()
     response.say("Recorded")
     return str(response)
+
+# Register Form
+@app.route('/for-patients', methods=['GET', 'POST'])
+def reg():
+  return 'WORK IN PROGRESS'
    
 # Database
 @app.route('/data', methods=['GET', 'POST'])
