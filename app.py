@@ -161,7 +161,9 @@ def reg():
 # Get Data Route
 @app.route('/profile/<int:profID>', methods=['GET', 'POST'])
 def prof(profID):
-  return 'You Looked at profile ' + str(profID);
+  prof = Profile.query.filter(Profile.id == profID);
+  #return 'You Looked at profile ' + str(profID);
+  return jsonify(values=prof.serialize)
    
 # Database
 @app.route('/data', methods=['GET', 'POST'])
