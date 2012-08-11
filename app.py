@@ -212,6 +212,10 @@ def dummy():
     db.session.commit()
     return 'Dummy Data Added!'
 
+# Debug
+@app.route('/client', methods=['GET', 'POST'])
+def debug():
+  return render_template('client.html')
 
 # Index page
 @app.route('/')
