@@ -90,7 +90,7 @@ def sms():
 
 
 # Twilio Client demo template
-@app.route('/client')
+@app.route('/clientOLD')
 def client():
     configuration_error = None
     for key in ('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN', 'TWILIO_APP_SID',
@@ -220,8 +220,11 @@ def dummy():
     return 'Dummy Data Added!'
 
 # Debug
-@app.route('/client', methods=['GET', 'POST'])
-def debug():
+@app.route('/client/<int:clientID>', methods=['GET', 'POST'])
+def client(clientID):
+  prof = Profile.query.filter(Profile.id == clientID);
+  param = prof[0].serialize
+  print param
   return render_template('client.html')
 
 # Index page
