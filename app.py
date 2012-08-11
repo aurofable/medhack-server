@@ -163,7 +163,7 @@ def reg():
 def prof(profID):
   prof = Profile.query.filter(Profile.id == profID);
   #return 'You Looked at profile ' + str(profID);
-  return jsonify(values=prof.serialize)
+  return jsonify(values=[i.serialize for i in prof])
    
 # Database
 @app.route('/data', methods=['GET', 'POST'])
