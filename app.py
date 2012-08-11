@@ -190,7 +190,6 @@ def reset():
 # Dummy Data
 @app.route('/dummy', methods=['GET', 'POST'])
 def dummy():
-
     first_name = 'John'
     last_name = 'Smith'
     aux = 'Lorem Ipsum'
@@ -208,8 +207,8 @@ def dummy():
     pic3 = 'http://www.google.com'
     prof = Profile(first_name, last_name, aux, pic1, pic2, pic3)
     db.session.add(prof)
-
     db.session.commit()
+    return 'Dummy Data Added!'
 
 
 # Index page
