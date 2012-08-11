@@ -9,6 +9,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 from twilio import twiml
 from twilio.util import TwilioCapability
+from twilio.rest import TwilioRestClient
 
 import string
 import random
@@ -210,6 +211,12 @@ def dummy():
     prof = Profile(first_name, last_name, aux, pic1, pic2, pic3)
     db.session.add(prof)
     db.session.commit()
+
+    accnt_sid = app.config['TWILIO_ACCOUNT_SID']
+    auth_token = app.config['TWILIO_AUTH_TOKEN']
+
+    client = TwilioRestClient(accnt_sid, auth_token)
+    messsage = client.sms.messages.create(to="+14124252207", from_="+16099526377", body="HELP!")
     return 'Dummy Data Added!'
 
 # Debug
