@@ -194,7 +194,7 @@ def index():
         'data_url' : url_for('.data', _external=True)}
         
     return render_template('index.html', params=params) '''
-  return render_template('landing_page.html')
+  return render_template('index.html')
 
 # If PORT not specified by environment, assume development config.
 if __name__ == '__main__':
