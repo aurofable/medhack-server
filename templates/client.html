@@ -16,7 +16,7 @@
     <script src = 'static/js/jquery.easing-1.3.js'></script>
     <script src = 'static/js/prettify.js'></script>
     <script src = 'static/js/common.js'></script>
-    
+
     <script src = 'static/js/jquery.iosslider.min.js'></script>
 
     <!--[if lt IE 9]>
@@ -55,47 +55,56 @@
       </div>
     </div>
     <script>
-    $(document).ready(function()
-  {
-    $(".login-link").click(function()
-    {
-      $("#login-box").toggle();
-      $("#username").focus();
-      return false;
-    });
-    $("#select-meal input").attr('min', 0);
-    $("html").click(function()
-    {$("#login-box").hide();});
+$(document).ready(function() {
+  
+  $('.iosSlider').iosSlider({
+    desktopClickDrag: true,
+    snapToChildren: true,
+    navSlideSelector: '.sliderContainer .slideSelectors .item',
+    onSlideComplete: slideComplete,
+    onSliderLoaded: sliderLoaded,
+    onSlideChange: slideChange,
+    autoSlide: true,
+    scrollbar: true,
+    scrollbarContainer: '.sliderContainer .scrollbarContainer',
+    scrollbarMargin: '0',
+    scrollbarBorderRadius: '0'
+  });
+  
+  prettyPrint();
 
-    $("#login-box").click(function()
-    {
-      event.stopPropagation();
-    });
+});
+
+function slideChange(args) {
       
-    $("#login-submit").click(function()
-    {
-      $('#content').load('1bloggedin.html #content');
-      return false;
-    });
-    $("#screen1").on("click", "#select a", function(event)
-    {
-      $('#screen1').load('#screen2');
-      return false;
-    });
-    $("#screen2").on("click", "#Submit", function(event)
-    {
-      $('#content').load('2bloading.html #content');
-      setTimeout("updatePage()", 3000);
-    });
-    
+  $('.sliderContainer .slideSelectors .item').removeClass('selected');
+  $('.sliderContainer .slideSelectors .item:eq(' + args.currentSlideNumber + ')').addClass('selected');
 
-    //$('#paging a').live('click', function(event) {
-      //event.preventDefault();
-      //getElementContents('#content','',$(this).attr('href'),false);
-      // arguements are (target element, data (for $ajax), url (for $ajax), highlight)
-    //});
-  }
-);
+}
+
+function slideComplete(args) {
+    
+  $(args.sliderObject).find('.text1, .text2').attr('style', '');
+  
+  $(args.currentSlideObject).find('.text1').animate({
+    right: '100px',
+    opacity: '0.8'
+  }, 400, 'easeOutQuint');
+  
+  $(args.currentSlideObject).find('.text2').delay(200).animate({
+    right: '50px',
+    opacity: '0.8'
+  }, 400, 'easeOutQuint');
+  
+}
+
+function sliderLoaded(args) {
+    
+  slideComplete(args);
+  
+  slideChange(args);
+  
+}
     </script>
     <div class="container">
       <div id="screen1">
