@@ -231,6 +231,13 @@ def client(clientID):
 # DEMO
 @app.route('/clientDemo', methods=['GET', 'POST'])
 def demo():
+
+    accnt_sid = app.config['TWILIO_ACCOUNT_SID']
+    auth_token = app.config['TWILIO_AUTH_TOKEN']
+
+    client = TwilioRestClient(accnt_sid, auth_token)
+    messsage = client.sms.messages.create(to="+14124252207", from_="+16099526377", body="Your next of kin may have been in an incident. Please contact them as soon as possible!")
+    return 'Dummy Data Added!'
   return render_template('client.html')
 
 # Index page
