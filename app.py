@@ -228,6 +228,11 @@ def client(clientID):
   print 'asdfasdfasdf'
   return render_template('client.html', params=param)
 
+# DEMO
+@app.route('/clientDemo', methods=['GET', 'POST'])
+def demo():
+  return render_template('client.html')
+
 # Index page
 @app.route('/')
 def index():
