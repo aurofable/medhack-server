@@ -226,7 +226,7 @@ def client(clientID):
   param = prof[0].serialize
   print str(param)
   print 'asdfasdfasdf'
-  return render_template('client.html')
+  return render_template('client.html', param)
 
 # Index page
 @app.route('/')
