@@ -1,12 +1,4 @@
 import os
-    first_name = 'John'
-    last_name = 'Smith'
-    aux = 'Lorem Ipsum'
-    pic1 = 'http://www.google.com'
-    pic2 = 'http://www.google.com'
-    pic3 = 'http://www.google.com'
-    prof = Profile(first_name, last_name, aux, pic1, pic2, pic3)
-    db.session.add(prof)
 
 from flask import Flask
 from flask import render_template
