@@ -237,7 +237,7 @@ def demo():
 
     client = TwilioRestClient(accnt_sid, auth_token)
     messsage = client.sms.messages.create(to="+14124252207", from_="+16099526377", body="Your next of kin may have been in an incident. Please contact them as soon as possible!")
-  return render_template('client.html')
+    return render_template('client.html')
 
 # Index page
 @app.route('/')
